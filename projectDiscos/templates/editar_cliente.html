@@ -1,0 +1,29 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Editar cliente
+{% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Editar cliente</h3>
+            <form action="{{url_for('actualizar_cliente')}}" method="post">
+                {# Enviar el id en un campo oculto #}
+                <input type="hidden" name="cliente_id" value="{{ed_cliente[0]}}">
+                <label for="nombre">Nombre</label>
+                <input value="{{ed_cliente[1]}}" required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
+                <label for="apeliidos">Apellidos</label>
+                <input value="{{ed_cliente[2]}}" required type="text" class="input" placeholder="Apellido" name="apellidos" id="apellidos">
+                <label for="email">Email</label>
+                <input value="{{ed_cliente[3]}}" required type="text" class="input" placeholder="Email" name="email" id="email">
+                <label for="celular">Celular</label>
+                <input value="{{ed_cliente[4]}}" required type="number" class="input" placeholder="Celular" name="telefono" id="telefono">
+                <label for="direccion">Dirección</label>
+                <input value="{{ed_cliente[5]}}" required type="text" class="input" placeholder="Dirección" name="direccion" id="direccion">
+                <button type="submit" class="button is-success mt-2">Guardar</button>
+                <a href="{{url_for('clientes')}}" class="button is-primary mt-2">Volver</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
